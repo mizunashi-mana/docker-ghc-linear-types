@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  playground:
+    build: .
+    volumes:
+      - ./Main.hs:/root/Main.hs
+    entrypoint: bash
+    command: ["-c", "tail -f /var/log/lastlog"]

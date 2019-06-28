@@ -1,0 +1,34 @@
+cabal-version: 2.4
+
+name: playground
+version: 0.0.0.1
+build-type: Simple
+
+common general
+  autogen-modules:
+    Paths_playground
+  other-modules:
+    Paths_playground
+  build-depends:
+    base >= 4.7 && < 5,
+
+    linear-base
+  ghc-options:
+    -Wall
+    -Wcompat
+    -Wincomplete-uni-patterns
+    -Wincomplete-record-updates
+    -Wredundant-constraints
+    -Wpartial-fields
+
+    -fprint-explicit-foralls
+    -fprint-potential-instances
+    -frefinement-level-hole-fits=1
+
+    -dcore-lint
+  default-language: Haskell2010
+
+executable playground
+  import: general
+  hs-source-dirs: .
+  main-is: Main.hs
